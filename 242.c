@@ -4,6 +4,7 @@
     > Mail: du_303412@163.com 
     > Created Time: Fri 04 Mar 2016 11:06:51 AM CST
  ************************************************************************/
+/*
 bool isAnagram(char* s, char* t) {
 	int lengthS, lengthT;
 	if (s == NULL && t == NULL)
@@ -41,4 +42,22 @@ void sortString(char* s)
 			}
 		}
 	}
+}
+*/
+
+bool isAnagram(char* s, char* t)
+{
+	int a[256] = {};
+	if (strlen(s) != strlen(t))
+		return false;
+	while (*s)
+		a[*s++]++;
+	while (*t)
+	{
+		if (a[*t] > 0)
+			a[*t++]--;
+		else
+			return false;
+	}
+	return true;
 }
